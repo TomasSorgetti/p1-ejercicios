@@ -16,11 +16,14 @@ let maxima = 1;
 let condition;
 
 do {
+  //* nota hay que ponerla dentro de un do while, si la nota es incorrecta, se repite el do while
   let nota = parseInt(prompt("Ingresa una nota"));
 
   //* Si la nota no es válida arroja error
+  // !nota no es valido porque al prompt se lo convierte en numero, por lo que hay que usar isNaN()
   if (!nota || nota > 10 || nota <= 0)
     console.error("Ingresá una nota válida loco");
+
   //* Aprobados, Desaprobados y Promedio
   if (nota < 4) {
     desaprobados.push(nota);
@@ -37,7 +40,8 @@ do {
   if (nota > maxima) {
     maxima = nota;
   }
-
+  
+  //* Se puede poner directamente el confirm en la condicion sin la necesidad de declarrar una variable
   condition = confirm("Querés agregar otra nota?");
 } while (condition);
 
